@@ -2,11 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-url = 'https://www.qgsydw.com/qgsydw/examinfo.html?channel=bmsj'
+# 设置目标URL及请求头
+url = 'http://httpbin.org/get'
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.41'}
 
 # 发送HTTP请求并获取响应
-response = requests.get(url)
+response = requests.get(url,headers=headers)
 response.encoding = 'utf-8'
+print(response.text)
 
 # 使用BeautifulSoup解析响应内容
 soup = BeautifulSoup(response.text, 'html.parser')
